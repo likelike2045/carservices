@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '4zqe&8*-$g1z$ecy53@jto+w_q@+uxvkx$y^hx&^52gkk0j(2v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -95,7 +95,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'ASIA/HONG_KONG'
+TIME_ZONE = 'Asia/Hong_Kong'
 
 USE_I18N = True
 
