@@ -2,4 +2,26 @@
 {% block title %}Car Detail{% endblock %}
 {% block content %}
 
+	
+	<hr>
+	<h1>No.: {{ car.car_number }}</h1>
+		<p>Model: {{ car.car_model }}</p>
+		<p>Owner: {{ car.car_owner }}</p>
+		<p>Notes: {{ car.car_notes }}</p>
+		
+		<p>Description: {{ car.description }}</p>
+		<p>Services{{ car.services_type }}</p>
+		<p>Submission Date: {{ car.submission_date }}</p>
+		<p>Year Old: {{ car.year_old }}</p>
+		<p>Services Charge: {{ car.services_charge }}</p>
+		<ul>
+			{% for servicing in car.servicing.all %}
+			<p>{{ servicing.name }}</p>
+			{% endfor %}
+		</ul>
+		<a href="{% url 'services:car_detail' car.id %}">Check for Details</a>
+	<hr>
+	
+
+
 {% endblock %}

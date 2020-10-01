@@ -29,7 +29,7 @@ class Car(models.Model):
 									)
 	submission_date = models.DateTimeField()
 	year_old = models.IntegerField()
-	services_charge = models.IntegerField(null=True)
+	services_charge = models.IntegerField(null=True, blank=True)
 	servicing = models.ManyToManyField(Services, blank=True)
 
 
