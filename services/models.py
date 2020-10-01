@@ -2,26 +2,39 @@ from django.db import models
 
 # Create your models here.
 # max_length variable
-max_len = 100
-min_len = 1
-length_thirty = 30
-length_fifty = 50
+
 
 class Services(models.Model):
-	name = models.CharField(max_length=length_fifty)
+	name = models.CharField(max_length=128, unique=True)
+
+	def __str__(self):
+		return self.name
 
 class Car(models.Model):
-	SERVICE_CHOICES = [('P','Platinum'),('G','Gold')]
-	car_model = models.CharField(max_length=max_len)
-	car_owner = models.CharField(max_length=max_len)
-	car_notes = models.CharField(max_length=max_len)
-	car_number = models.CharField(max_length=length_thirty)
+	PLATINUM = 'PL'
+	GOLD = 'GO'
+	SERVICE_CHOICES = (
+						('PLATINUM','Platinum'),
+						('GOLD','Gold'),
+					)
+	car_model = models.CharField(max_length=100)
+	car_owner = models.CharField(max_length=100)
+	car_notes = models.CharField(max_length=100)
+	car_number = models.CharField(max_length=30)
 	description = models.TextField()
-	services_type = models.IntegerField(choices = SERVICE_CHOICES, max_length=min_len, blank=True)
+	services_type = models.CharField(
+									choices = SERVICE_CHOICES, 
+									max_length=100, 
+									blank=True,
+									)
 	submission_date = models.DateTimeField()
 	year_old = models.IntegerField()
 	services_charge = models.IntegerField(null=True)
 	servicing = models.ManyToManyField(Services, blank=True)
+
+
+	def __str__(self):
+		return f'{self.car_model} - {self.car_notes} - {self.car_number}' 
 
 
 	

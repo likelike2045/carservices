@@ -1,0 +1,24 @@
+{% extends 'services/base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<ul>
+	{% for car in cars %}
+	<hr>
+		<li>Model: {{ car.car_model }}</li>
+		<li>Owner: {{ car.car_owner }}</li>
+		<li>Notes: {{ car.car_notes }}</li>
+		<li>No.: {{ car.car_number }}</li>
+		<li>Description: {{ car.description }}</li>
+		<li>Services{{ car.services_type }}</li>
+		<li>Submission Date: {{ car.submission_date }}</li>
+		<li>Year Old: {{ car.year_old }}</li>
+		<li>Services Charge: {{ car.services_charge }}</li>
+		<li>Servicing: {{ car.servicing }}</li>
+		<a href="{% url 'services:car_detail' car.id %}">Check for Details</a>
+	<hr>
+	{% endfor %}
+</ul>
+
+	
+
+{% endblock %}
